@@ -1,0 +1,10 @@
+server:
+  port: 8081
+  
+spring:
+  appliction:
+   name: cto51-lesson19
+  data:
+    elasticsearch:
+      cluster-name: elasticsearch # 集群名(默认值: elasticsearch，对应Elasticsearch配置文件elasticsearch.yml的cluster.name配置项)
+      cluster-nodes: localhost:9300 # 集群节点地址列表，用逗号分隔

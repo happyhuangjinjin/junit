@@ -1,0 +1,8 @@
+server:
+  port: 8094
+  
+jdbc:
+  oracle:
+    username: scott
+    password: scott@123
+    url: jdbc:oracle:thin:@localhost:1521:orcl

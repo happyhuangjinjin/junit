@@ -1,0 +1,10 @@
+server:
+  port: 8090
+  
+spring:
+  application:
+    name: cto51-lesson5
+    
+logging:
+  config: classpath:logback-spring.xml
+   

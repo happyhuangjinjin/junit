@@ -1,0 +1,18 @@
+server:
+  port: 8081
+  
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/userdb?serverTimezone=UTC&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driverClassName: com.mysql.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    
+mybatis:
+  config-location: classpath:config/mybatis-config.xml
+  type-aliases-package: com.cto51.dto
+  
+logging:
+  level:
+    com.cto51: debug

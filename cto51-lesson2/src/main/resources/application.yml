@@ -1,0 +1,11 @@
+server:
+  port: 8080
+ 
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  application:
+    name: cto51-lesson2
+    

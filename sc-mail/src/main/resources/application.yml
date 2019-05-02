@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: sc-mail
+  mail:
+    host: smtp.qq.com #邮箱服务器地址
+    port: 465
+    username: 515768476@qq.com #用户名
+    password: 自己的密码 #密码
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable:
+              true

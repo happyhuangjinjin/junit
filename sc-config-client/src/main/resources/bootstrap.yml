@@ -1,0 +1,21 @@
+#服务端口
+server:
+  port: 8200
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5001/eureka/
+      
+spring:
+  application:
+    name: sc-config-client
+  cloud:
+    config:
+      label: master # 配置文件所在分支
+      #uri: http://127.0.0.1:8100/  #配置服务中心
+      #profile: dev  # dev根据具体情况来修改
+      profile: prd  # dev根据具体情况来修改
+      discovery:
+        serviceId: sc-config-server #配置服务实例名称
+        enabled: true  #开启配置服务发现

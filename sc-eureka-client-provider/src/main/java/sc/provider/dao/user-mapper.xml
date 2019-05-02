@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="sc.provider.dao.UserDao" >
+
+	<select id="getUser" parameterType="java.lang.Long"  resultType="sc.provider.model.User">
+		select id, userName, age, position from t_user where id = #{id,jdbcType=INTEGER}
+	</select>
+	
+	<select id="listUser" resultType="sc.provider.model.User">
+		select id, userName, age, position from t_user
+	</select>
+	
+	<insert id="addUser" parameterType="sc.provider.model.User">
+		insert into t_user (
+		   id, userName, age, position
+		) values (
+		   #{id,jdbcType=INTEGER},
+		   #{userName,jdbcType=VARCHAR},
+		   #{age,jdbcType=INTEGER},
+		   #{position,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<update id="updateUser" parameterType="sc.provider.model.User">
+	     update t_user set 
+		   userName = #{userName,jdbcType=VARCHAR},
+		   age = #{age,jdbcType=INTEGER},
+		   position = #{position,jdbcType=VARCHAR}
+	     where id = #{id,jdbcType=INTEGER}
+	</update>
+	
+	<delete id="deleteUser" parameterType="java.lang.Long">
+	 delete from t_user
+    	where id = #{id,jdbcType=INTEGER}
+	</delete>
+
+</mapper>

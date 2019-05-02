@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>list user</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<th>ID</th>
+			<th>姓名</th>
+			<th>岁数</th>
+			<th>职位</th>
+		</tr>
+		<tr th:each="user : ${list}">
+			<td th:text="${user.id}"></td>
+			<td th:text="${user.name}"></td>
+			<td th:text="${user.age}"></td>
+			<td th:text="${user.position}"></td>
+		</tr>
+	</table>
+
+</body>
+</html>

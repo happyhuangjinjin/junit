@@ -1,0 +1,40 @@
+package com.cto51;
+
+import com.cto51.dto.SaleDetail;
+
+// 周六周日打9折
+rule "Sat and Sun 90%"	
+	no-loop true
+	lock-on-active true
+	salience  3
+	when
+		$s : SaleDetail(getDayOfWeek() == 1 || getDayOfWeek() == 7)
+	then
+		$s.setDiscount(0.9f);
+		update($s);
+end
+
+// 500元打8折
+rule "500 80%"
+	no-loop true
+	lock-on-active true
+	salience  2
+	when
+		$s : SaleDetail(getTotal() >= 500)
+	then
+		$s.setDiscount(0.8f);
+		update($s);
+end
+
+// 1000元打7折
+rule "1000 70%"
+	no-loop true
+	lock-on-active true
+	salience  1
+	when
+		$s : SaleDetail(getTotal() >= 1000)
+	then
+		$s.setDiscount(0.7f);
+		update($s);
+end
+

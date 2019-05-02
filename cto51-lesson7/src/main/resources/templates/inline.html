@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>string</title>
+</head>
+   <h4>内联</h4>
+   <script th:inline="javascript">
+        function show(){
+        	var username = [[${username }]];
+            alert(username);
+        }
+    </script>
+<body>
+	<div th:inline="text" >
+        <p>你好, [[${username}]] !</p>
+    </div>
+    <button onclick="show()">show</button>
+    
+</body>
+</html>

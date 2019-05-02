@@ -1,0 +1,6 @@
+server:
+  port: 8979
+  
+spirng:
+  application:
+    name: sc-scheduled

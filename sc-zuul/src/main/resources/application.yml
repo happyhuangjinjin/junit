@@ -1,0 +1,16 @@
+server:
+  port: 8070
+  
+spring:
+  application:
+    name: sc-zuul
+    
+zuul:
+  routes:
+    sina:
+      path: /sina/**
+      url: http://www.sina.com.cn
+    baidu:
+      path: /baidu/**
+      url: http://www.baidu.com
+

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.um.sys.dao.RoleDao">
+
+	<sql id="Column_List">
+		id, name, `description`, create_user createUser, 
+		create_date createDate, update_user updateUser, update_date updateDate,
+		remark1, remark1
+	</sql>
+	
+	<insert id="addRole" parameterType="com.um.sys.dto.RoleDto">
+		INSERT INTO
+		t_role ( name, `description`, create_user, 
+			create_date, update_user, update_date,
+			remark1, remark2
+		)
+		VALUES(
+			#{name,jdbcType=VARCHAR},
+			#{description,jdbcType=VARCHAR},
+			#{createUser,jdbcType=VARCHAR},
+			now(),
+			#{updateUser,jdbcType=VARCHAR},
+			now(),
+			#{remark1,jdbcType=VARCHAR},
+			#{remark2,jdbcType=VARCHAR}
+		)
+	</insert>
+	
+	<update id="updateRole" parameterType="com.um.sys.dto.RoleDto">
+		UPDATE
+			t_role 
+		SET
+			 name = #{name,jdbcType=VARCHAR},
+			 `description` = #{description,jdbcType=VARCHAR},
+			 update_user= #{updateUser,jdbcType=VARCHAR},
+			 update_date= now(),
+			 remark1= #{remark1,jdbcType=VARCHAR},
+			 remark2= #{remark2,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	
+	<delete id="deleteRole" parameterType="java.lang.Integer">
+		DELETE FROM t_role where id =
+		#{id,jdbcType=INTEGER}
+	</delete>
+
+	<select id="getRole" resultType="com.um.sys.dto.RoleDto">
+		SELECT
+		<include refid="Column_List" />
+		FROM t_role
+		WHERE
+		id=#{id,jdbcType=INTEGER}
+	</select>
+
+	<select id="listAllRoles" resultType="com.um.sys.dto.RoleDto">
+		SELECT
+		<include refid="Column_List" />
+		FROM t_role
+	</select>
+
+	
+	<select id="getPageRole" resultType="com.um.sys.dto.RoleDto"
+	  parameterType="java.util.Map">
+		SELECT
+		<include refid="Column_List" />
+		FROM t_role  LIMIT  #{pageIndex,jdbcType=INTEGER}, #{pageSize,jdbcType=INTEGER}
+	</select>
+		
+	<select id="getTotalCount" resultType="java.lang.Integer">
+		SELECT
+			count(*)
+		FROM t_role
+	</select>
+
+</mapper>

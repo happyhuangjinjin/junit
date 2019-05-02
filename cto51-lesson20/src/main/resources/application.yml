@@ -1,0 +1,19 @@
+server:
+  port: 8081
+  
+spring:
+  appliction:
+    name: cto51-lesson20
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/activiti?characterEncoding=utf8&useSSL=true
+    username: root
+    password: root
+  activiti:
+    check-process-definitions: false #不检查流程定义
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update #自动生成activiti的表结构
+  show-sql: true #显示SQL语句

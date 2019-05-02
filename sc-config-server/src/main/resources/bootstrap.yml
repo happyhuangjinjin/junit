@@ -1,0 +1,33 @@
+#服务端口
+server:
+  port: 8100
+  
+#服务注册中心
+eureka:
+  client:
+    registerWithEureka: true #是否将自己注册到Eureka服务中，默认为true
+    fetchRegistry: true #是否从Eureka中获取注册信息，默认为true
+    serviceUrl:
+      defaultZone: http://localhost:5001/eureka/
+  instance: 
+    prefer-ip-address: true #将自己的ip地址注册到Eureka服务中
+    ipAddress: 127.0.0.1
+
+spring:
+  application:
+    name: sc-config-server #服务名称
+  cloud:
+    config:
+      label: master #配置文件所在的分支
+      server:
+        git:
+          #uri: https://gitee.com/hjj520/spring-cloud-2.x.git #服务的git仓库地址
+          uri: https://gitee.com/hjj520/spring-cloud-2.x #服务的git仓库地址
+          #git仓库的用户名
+          #username: huangjinjin
+          #git仓库的密码
+          #password: ********
+          #search-paths: /config-repos/sc-consumer-config  #配置文件所在的目录
+          #search-paths: /config-repos/sc-config-client
+          #search-paths: /config-repos/sc-eureka-client-provider-config
+          search-paths:  /config-repos/{application}

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>utility</title>
+</head>
+   <h4>内置变量</h4>
+<body>
+	字符串长度：<span th:text="${#strings.length(words)}"></span><br/>
+	<span th:text="${#strings.concat('字符串连接：', words)}"></span><br/>
+	时间格式化：<span th:text="${#dates.format(date, 'yyyy-MM-dd HH:mm:ss')}"></span><br/>
+</body>
+</html>

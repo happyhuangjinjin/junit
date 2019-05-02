@@ -1,0 +1,12 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:5001/eureka/
+      
+server:
+  port: 9201
+spring:
+  application:
+    name: sc-zipkin-client-service
+  zipkin:
+    base-url: http://localhost:9000

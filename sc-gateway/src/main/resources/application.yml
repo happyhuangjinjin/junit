@@ -1,0 +1,17 @@
+server:
+  port: 8600
+  
+spring:
+  application:
+    name: sc-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: baidu
+        uri: https://www.baidu.com/
+        predicates:
+          - Path=/baidu/**
+      - id: jianshu
+        uri: https://www.jianshu.com/
+        predicates:
+          - Path=/jianshu/**
